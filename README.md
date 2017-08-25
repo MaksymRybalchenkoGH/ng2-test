@@ -11,7 +11,7 @@ Each product includes four fields: title, description, image, price.
 Creating/editing a product user can set any strings (with length validation) to title, description and price fields, while setting an image requires to select one from the list.
 
 
-Approximate time was spent on the development is 14 hours:
+Approximate time was spent on the development is 16 hours:
 - 1h: project initialization and required modules investigation
 - 2h: routing development for 3 mentioned pages
 - 3h: home page (products-main component)
