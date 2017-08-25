@@ -1,0 +1,12 @@
+.form-wrapper {
+  margin-bottom: 30px;
+  @media (max-width: 767px) {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  .form-group {
+    margin-bottom: 25px;
+  }
+}
+
+

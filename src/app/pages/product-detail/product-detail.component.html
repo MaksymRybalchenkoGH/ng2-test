@@ -1,0 +1,112 @@
+<div class="container">
+  <div class="controller-wrapper">
+    <button
+      routerLink="/products"
+      type="button"
+      class="btn btn-primary goback-button">
+        Go to the list view
+    </button>
+    <div>
+      <button type="button" class="btn btn-lg btn-link" (click)="editProduct()">
+        <span class="glyphicon glyphicon-edit"></span>
+      </button>
+      <button type="button" class="btn btn-lg btn-link" (click)="openModal(template)">
+        <span class="glyphicon glyphicon-trash"></span>
+      </button>
+    </div>
+  </div>
+</div>
+
+
+<div class="container product-form">
+  <form #editItem="ngForm" (ngSubmit)="saveEdit(editItem)" toggle="validator">
+
+    <div class="form-group row product-form__field">
+      <label for="productName" class="col-sm-3 col-form-label">Name</label>
+      <div class="col-sm-9" *ngIf="!editable">
+        <h4 class="product-info">{{product.title}}</h4>
+      </div>
+      <div class="col-sm-9" *ngIf="editable">
+        <input
+          class="form-control"
+          id="productName"
+          name="title"
+          [ngModel] = "product.title"
+          required
+          minlength="4"
+        >
+        <div class="help-block with-errors">Minimum 4 characters</div>
+      </div>
+    </div>
+
+    <div class="form-group row product-form__field">
+      <label for="productDescription" class="col-sm-3 col-form-label">Description</label>
+      <div class="col-sm-9" *ngIf="!editable">
+        <h4 class="product-info">{{product.description}}</h4>
+      </div>
+      <div class="col-sm-9" *ngIf="editable">
+        <input
+          class="form-control"
+          id="productDescription"
+          name="description"
+          [ngModel]="product.description"
+          required
+          maxlength="30"
+        >
+        <div class="help-block with-errors">Up to 30 characters</div>
+      </div>
+    </div>
+
+    <div class="form-group row product-form__field">
+      <label for="productImg" class="col-sm-3 col-form-label">Image</label>
+      <div class="col-sm-9" *ngIf="!editable">
+        <h4 class="product-info">{{product.imgUrl}}</h4>
+      </div>
+      <div class="col-sm-9" *ngIf="editable">
+        <select
+          class="form-control"
+          id="productImg"
+          name="imgUrl"
+          [ngModel]="product.imgUrl"
+        >
+          <option *ngFor="let image of imageList" value="{{image}}">{{image}}</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group row product-form__field">
+      <label for="productPrice" class="col-sm-3 col-form-label">Price</label>
+      <div class="col-sm-9" *ngIf="!editable">
+        <h4 class="product-info">{{product.price}}</h4>
+      </div>
+      <div class="col-sm-9" *ngIf="editable">
+        <input
+          class="form-control"
+          id="productPrice"
+          name="price"
+          [ngModel]="product.price"
+          required
+        >
+      </div>
+    </div>
+    <button *ngIf="editable" class="btn btn-primary save-edit">Save</button>
+  </form>
+</div>
+
+<template #template>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Think twice before removing</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <button
+      routerLink="/products"
+      type="button"
+      class="btn btn-primary goback-button"
+      (click)="deleteItem()">
+        I definitely want this!
+    </button>
+  </div>
+</template>

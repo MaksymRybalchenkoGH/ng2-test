@@ -1,0 +1,11 @@
+
+<div class="container">
+  <div *ngFor="let product of productList; let id = index">
+    <product-card [data]='product' [id]='id'></product-card>
+  </div>
+  <div class="col-xs-12 col-sm-6 col-md-4">
+    <button class="btn btn-lg btn-primary add-product" routerLink="/new-product">
+      <span class="glyphicon glyphicon-plus"></span>
+    </button>
+  </div>
+</div>

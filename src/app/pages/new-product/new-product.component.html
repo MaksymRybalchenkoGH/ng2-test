@@ -1,0 +1,74 @@
+<div class="container">
+  <div class="row form-wrapper">
+    <button
+      routerLink="/products"
+      type="button"
+      class="btn btn-primary goback-button"
+    >
+      Go to the list view
+    </button>
+  </div>
+</div>
+<div class="container">
+  <div class="row form-wrapper">
+    <form #addProductForm="ngForm" (ngSubmit)="addProduct(addProductForm)">
+      <div class="form-group row">
+        <label class="col-sm-3" for="productName">Name</label>
+        <div class="col-sm-9">
+          <input
+            class="form-control"
+            id="productName"
+            name="title"
+            placeholder="Enter product title"
+            ngModel
+            required
+          >
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-sm-3" for="productDescription">Description</label>
+        <div class="col-sm-9">
+          <input
+            class="form-control"
+            id="productDescription"
+            name="description"
+            placeholder="Enter product description"
+            ngModel
+            required
+          >
+        </div>
+
+      </div>
+      <div class="form-group row">
+        <label class="col-sm-3" for="productImg">Image</label>
+        <div class="col-sm-9">
+          <select
+            class="form-control"
+            id="productImg"
+            name="imgUrl"
+            ngModel
+            required
+          >
+            <option value="" disabled selected>Select an image</option>
+            <option *ngFor="let image of imageList" value="{{image}}">{{image}}</option>
+          </select>
+        </div>
+
+      </div>
+      <div class="form-group row">
+        <label class="col-sm-3" for="productPrice">Price</label>
+        <div class="col-sm-9">
+          <input
+            class="form-control"
+            id="productPrice"
+            name="price"
+            placeholder="Enter product price"
+            ngModel
+            required
+          >
+        </div>
+      </div>
+      <button class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,30 @@
+.product-card {
+  text-align: center;
+  cursor: pointer;
+  border: 1px solid #999999;
+  min-height: 330px;
+  margin: 14px 0;
+
+  &__image {
+    display: block;
+    width: 100%;
+    height: 170px;
+
+    @media(max-width: 767px) {
+      height: auto;
+    }
+  }
+
+  &__title {
+    font-style: italic;
+  }
+
+  &__description {
+    font-weight: 500;
+  }
+
+  &__price {
+    color: #aaaaaa;
+  }
+
+}
