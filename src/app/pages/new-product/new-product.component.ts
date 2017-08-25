@@ -17,6 +17,7 @@ export class NewProductComponent implements OnInit {
     this.productList.forEach(item => this.imageList.push(item.imgUrl));
   }
 
+  // pushes new element in the array and updates LS
   addProduct(form: NgForm) {
     this.productList.push(form.value);
     this.localStorageService.set('items', this.productList);

@@ -39,15 +39,18 @@ export class ProductDetailComponent implements OnInit {
   openModal(template: TemplateRef<any>) {
     this.modalRef = this.modalService.show(template, this.modalConfig);
   }
+  // enables / disables editing mode
   editProduct() {
     this.editable = !this.editable;
   }
+  // removes an tem from the array
   deleteItem() {
     this.productList.splice(this.productID, 1);
     this.localStorageService.set('items', this.productList);
     this.modalRef.hide();
   }
 
+  // changes current product in the array and pushes new array to LS
   saveEdit(form: NgForm) {
     this.product = this.productList[this.productID] = form.value;
     this.localStorageService.set('items', this.productList);

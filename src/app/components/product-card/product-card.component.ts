@@ -1,6 +1,4 @@
-import {Component, Input, OnInit, TemplateRef} from '@angular/core';
-import { BsModalService } from 'ngx-bootstrap/modal';
-import { BsModalRef } from 'ngx-bootstrap/modal/modal-options.class';
+import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'product-card',
@@ -11,6 +9,7 @@ export class ProductCardComponent implements OnInit {
 
   @Input() data: any;
   @Input() id: number;
+
   imgPath: string = '';
   constructor() {}
 
